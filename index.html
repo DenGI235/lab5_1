@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1</title>
+</head>
+<body>
+    <a href="#" id="languages-link">Мови</a>
+    <a href="#" id="students-link">Студенти</a>
+    <div id="output" style="background-color: yellow; padding: 10px;"></div>
+
+    <script>
+        const languagesLink = document.getElementById('languages-link');
+        const studentsLink = document.getElementById('students-link');
+        const outputDiv = document.getElementById('output');
+
+        languagesLink.addEventListener('click', async () => {
+            const response = await fetch('1.txt');
+            const languages = await response.json();
+            outputDiv.innerHTML = languages.join(', ');
+        });
+
+        studentsLink.addEventListener('click', async () => {
+            const response = await fetch('2.txt');
+            const students = await response.json();
+            outputDiv.innerHTML = students.join(', ');
+        });
+    </script>
+</body>
+</html>
